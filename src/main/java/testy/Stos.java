@@ -23,6 +23,18 @@ public class Stos {
             return true;
         }
     }
+
+    public int[] reverseStack(Stack<Integer> stack, int[] arr) {
+        int size = arr.length;
+        for(int i = 0; i < arr.length; i++) {
+            stack.push(arr[i]);
+        }
+        int[] reverseArray = new int[size];
+        for (int i = 0; i < size; i++) {
+            reverseArray[i] = stack.pop();
+        }
+        return reverseArray;
+    }
 }
 
 

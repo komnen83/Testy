@@ -3,6 +3,7 @@ package testy;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 class StosTest {
@@ -70,5 +71,23 @@ class StosTest {
         boolean wynik = stos.isStackEmpty(stack);
 
         Assertions.assertTrue(wynik);
+    }
+
+    @Test
+    void testReverseStack() {
+        Stos stos = new Stos();
+        Stack<Integer> stack = new Stack<>();
+        int[] arr = {1, 2, 3, 4, 5};
+
+        stos.stackPush(stack, 3);
+        stos.stackPush(stack, 2);
+        stos.stackPush(stack, 1);
+
+
+        int[] wynik = stos.reverseStack(stack, arr);
+        int[] odwroconaTablica = {5, 4, 3, 2, 1};
+
+        Assertions.assertEquals(Arrays.toString(odwroconaTablica), Arrays.toString(wynik));
+
     }
 }

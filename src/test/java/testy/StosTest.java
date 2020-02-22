@@ -11,13 +11,13 @@ class StosTest {
     void testStackPush() {
         Stos stos = new Stos();
         Stack<Integer> stack = new Stack<>();
-        stos.stackPush(stack);
 
-        stack.push(5);
-        stack.push(4);
-        stack.push(3);
-        stack.push(2);
-        stack.push(1);
+        stos.stackPush(stack, 5);
+        stos.stackPush(stack, 4);
+        stos.stackPush(stack, 3);
+        stos.stackPush(stack, 2);
+        stos.stackPush(stack, 1);
+
         int wynik = stack.search(3);
 
         Assertions.assertEquals(3, wynik);
@@ -25,15 +25,21 @@ class StosTest {
 
     @Test
     void testStackPop() {
-//        Stack<Integer> stos = new Stack<>();
-//        stos.push(5);
-//        stos.push(4);
-//        stos.push(3);
-//        stos.push(2);
-//        stos.push(1);
-//
-//        stos.pop(4);
+        Stos stos = new Stos();
+        Stack<Integer> stack = new Stack<>();
 
+        stos.stackPush(stack, 5);
+        stos.stackPush(stack, 4);
+        stos.stackPush(stack, 3);
+        stos.stackPush(stack, 2);
+        stos.stackPush(stack, 1);
+
+        stos.stackPop(stack);
+        stos.stackPop(stack);
+
+        int rozmiar = stack.size();
+
+        Assertions.assertEquals(3, rozmiar);
     }
 
     @Test
@@ -41,13 +47,14 @@ class StosTest {
         Stos stos = new Stos();
         Stack<Integer> stack = new Stack<>();
 
-        stack.push(3);
-        stack.push(2);
-        stack.push(1);
+        stos.stackPush(stack, 4);
+        stos.stackPush(stack, 3);
+        stos.stackPush(stack, 2);
+        stos.stackPush(stack, 1);
 
-        int wynik = stack.size();
+        int wynik = stos.stackSize(stack);
 
-        Assertions.assertEquals(3, wynik);
+        Assertions.assertEquals(4, wynik);
     }
 
     @Test
@@ -56,9 +63,9 @@ class StosTest {
         Stos stos = new Stos();
         Stack<Integer> stack = new Stack<>();
 
-        stack.push(3);
-        stack.push(2);
-        stack.push(1);
+        stos.stackPush(stack, 3);
+        stos.stackPush(stack, 2);
+        stos.stackPush(stack, 1);
 
         boolean wynik = stos.isStackEmpty(stack);
 

@@ -3,32 +3,23 @@ package testy;
 import java.util.Stack;
 
 public class Stos {
-    // Pushing element on the top of the stack
-    public void stackPush(Stack<Integer> stack) {
-        for (int i = 0; i < 5; i++) {
-            stack.push(i);
-        }
+
+    public void stackPush(Stack stack, int a) {
+            stack.push(new Integer(a));
     }
 
-    // Popping element from the top of the stack
-    public void stackPop(Stack<Integer> stack) {
-        System.out.println("Pop :");
-
-        for (int i = 0; i < 5; i++) {
-            Integer y = (Integer) stack.pop();
-            System.out.println(y);
-        }
+    public void stackPop(Stack stack) {
+            Integer a = (Integer) stack.pop();
     }
 
     public int stackSize(Stack<Integer> stack) {
-//        System.out.println("Stack size: " + stack.size());
-        return stackSize(stack);
+        return stack.size();
     }
 
     public boolean isStackEmpty(Stack<Integer> stack) {
-        if(stack.isEmpty()) {
+        if (stack.isEmpty()) {
             return false;
-        } else  {
+        } else {
             return true;
         }
     }

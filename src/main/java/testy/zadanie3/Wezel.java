@@ -1,19 +1,30 @@
 package testy.zadanie3;
 
-// Program zwracajacy liczbe lisci w drzewie(lisc - wezel nie posiadajacy dzieci)
+class Wezel {
+    private int wartoscWezla;
+    private Wezel praweDziecko;
+    private Wezel leweDziecko;
 
-/* Class containing left and right child of current
- node and key value*/
-class Wezel
+    public Wezel(int wartoscWezla, Wezel praweDziecko, Wezel leweDziecko) {
+        this.wartoscWezla = wartoscWezla;
+        this.praweDziecko = praweDziecko;
+        this.leweDziecko = leweDziecko;
+    }
 
-{
-    int wartoscWezla;
-    Wezel lewy, prawy;
+    public Wezel getPraweDziecko() {
+        return praweDziecko;
+    }
 
-    public Wezel(int item)
-    {
-        wartoscWezla = item;
-        lewy = prawy = null;
+    public Wezel getLeweDziecko() {
+        return leweDziecko;
+    }
+
+    public void setPraweDziecko(Wezel praweDziecko) {
+        this.praweDziecko = praweDziecko;
+    }
+
+    public void setLeweDziecko(Wezel leweDziecko) {
+        this.leweDziecko = leweDziecko;
     }
 }
 

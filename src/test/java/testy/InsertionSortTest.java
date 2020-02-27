@@ -13,7 +13,7 @@ class InsertionSortTest {
     void insertionSortImperative() {
 
         int[] input = {6, 2, 3, 4, 5, 1};
-        
+
         int[] expected = {1, 2, 3, 4, 5, 6};
         int[] result = InsertionSort.insertionSortImperative(input);
 

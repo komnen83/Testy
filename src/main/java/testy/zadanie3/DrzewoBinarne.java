@@ -1,31 +1,38 @@
 package testy.zadanie3;
 
+import java.util.LinkedList;
+
 class DrzewoBinarne {
-    Wezel korzen;
 
-    int iloscLisci() {
-        return iloscLisci(korzen);
-    }
-
-    int iloscLisci(Wezel wezel) {
+    public int iloscLisci(Wezel wezel) {
         if (wezel == null)
             return 0;
-        if (wezel.lewy == null && wezel.prawy == null)
+        if (wezel.getLeweDziecko() == null && wezel.getPraweDziecko() == null)
             return 1;
         else
-            return iloscLisci(wezel.lewy) + iloscLisci(wezel.prawy);
+            return iloscLisci(wezel.getLeweDziecko()) + iloscLisci(wezel.getPraweDziecko());
     }
 
-    public static void main(String args[]) {
+    public int odwrocDrzewoBinarne(Wezel wezel) {
+        LinkedList<Wezel> kolejka = new LinkedList<>();
 
-        DrzewoBinarne drzewo = new DrzewoBinarne();
-        drzewo.korzen = new Wezel(1);
-        drzewo.korzen.lewy = new Wezel(2);
-        drzewo.korzen.prawy = new Wezel(3);
-        drzewo.korzen.lewy.lewy = new Wezel(4);
-        drzewo.korzen.lewy.prawy = new Wezel(5);
+        if (wezel != null) {
+            kolejka.add(wezel);
+        }
 
-        System.out.println("Ilosc lisci w drzewie binarnym = "
-                + drzewo.iloscLisci());
+        while (!kolejka.isEmpty()) {
+            Wezel lisc = kolejka.poll();
+            if (lisc.getLeweDziecko() != null) {
+                kolejka.add(wezel.getLeweDziecko());
+            }
+            if (lisc.getPraweDziecko() != null) {
+                kolejka.add(wezel.getPraweDziecko());
+            }
+
+            lisc.setLeweDziecko(lisc.getPraweDziecko());
+            lisc.setPraweDziecko(lisc.getLeweDziecko());
+        }
+        return odwrocDrzewoBinarne(wezel);
     }
+
 }
